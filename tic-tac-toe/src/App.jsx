@@ -12,19 +12,24 @@ const App = () => {
   const [plc7, setPlc7] = useState("")
   const [plc8, setPlc8] = useState("")
 
+  // let board = [
+  //   [plc0, plc1, plc2],
+  //   [plc3, plc4, plc5],
+  //   [plc6, plc7, plc8]
+  // ]
   let board = [
-    [setPlc0, setPlc1, setPlc2],
-    [setPlc3, setPlc4, setPlc5],
-    [setPlc6, setPlc7, setPlc8]
+    ["", "", ""],
+    ["", "", ""],
+    ["", "", ""]
   ]
 
   let ai = "X";
   let human = "O";
   let currentPlayer = human;
 
-  useEffect(() => {
-    move();
-  },)
+  // useEffect(() => {
+  //   move();
+  // },)
 
 
   const move = () => {
@@ -65,9 +70,28 @@ const App = () => {
     }
   }
 
-  const handleClick = (i, j) => {
-    board[i][j] = "X";
-    console.log(i, j);
+  const handleClick = (e, num) => {
+    if (num == 0) {
+      setPlc0("X");
+      e.target.innerHTML = "X"
+      board[0][0] = "X"
+      console.log(board[0][0]);
+    }
+    else if (num == 1) {
+      setPlc1("O");
+      e.target.innerHTML = "O"
+      board[0][1] = "O"
+      console.log(board[0][1]);
+    }
+    else if (num == 2) {
+      setPlc2("X");
+      e.target.innerHTML = "X"
+      board[0][2] = "X"
+      console.log(board[0][2]);
+      move();
+    } else {
+
+    }
 
   }
 
@@ -81,15 +105,15 @@ const App = () => {
         </h1>
 
         <div className="w-[23rem] h-[23rem] text-black grid grid-cols-3 grid-rows-3 gap-3">
-          <div className="text-5xl cursor-pointer rounded-xl bg-white flex justify-center items-center border" onClick={(e) => handleClick(0, 0)}>{plc0}</div>
-          <div className="text-5xl cursor-pointer rounded-xl bg-white flex justify-center items-center border" onClick={(e) => handleClick(0, 1)}>{plc1}</div>
-          <div className="text-5xl cursor-pointer rounded-xl bg-white flex justify-center items-center border" onClick={(e) => handleClick(0, 2)}>{plc2}</div>
-          <div className="text-5xl cursor-pointer rounded-xl bg-white flex justify-center items-center border" onClick={(e) => handleClick(1, 0)}>{plc3}</div>
-          <div className="text-5xl cursor-pointer rounded-xl bg-white flex justify-center items-center border" onClick={(e) => handleClick(1, 1)}>{plc4}</div>
-          <div className="text-5xl cursor-pointer rounded-xl bg-white flex justify-center items-center border" onClick={(e) => handleClick(1, 2)}>{plc5}</div>
-          <div className="text-5xl cursor-pointer rounded-xl bg-white flex justify-center items-center border" onClick={(e) => handleClick(2, 0)}>{plc6}</div>
-          <div className="text-5xl cursor-pointer rounded-xl bg-white flex justify-center items-center border" onClick={(e) => handleClick(2, 1)}>{plc7}</div>
-          <div className="text-5xl cursor-pointer rounded-xl bg-white flex justify-center items-center border" onClick={(e) => handleClick(2, 2)}>{plc8}</div>
+          <div className="text-5xl cursor-pointer rounded-xl bg-white flex justify-center items-center border" onClick={(e) => handleClick(e, 0)}>{plc0}</div>
+          <div className="text-5xl cursor-pointer rounded-xl bg-white flex justify-center items-center border" onClick={(e) => handleClick(e, 1)}>{plc1}</div>
+          <div className="text-5xl cursor-pointer rounded-xl bg-white flex justify-center items-center border" onClick={(e) => handleClick(e, 2)}>{plc2}</div>
+          <div className="text-5xl cursor-pointer rounded-xl bg-white flex justify-center items-center border" onClick={(e) => handleClick(e, 3)}>{plc3}</div>
+          <div className="text-5xl cursor-pointer rounded-xl bg-white flex justify-center items-center border" onClick={(e) => handleClick(e, 4)}>{plc4}</div>
+          <div className="text-5xl cursor-pointer rounded-xl bg-white flex justify-center items-center border" onClick={(e) => handleClick(e, 5)}>{plc5}</div>
+          <div className="text-5xl cursor-pointer rounded-xl bg-white flex justify-center items-center border" onClick={(e) => handleClick(e, 6)}>{plc6}</div>
+          <div className="text-5xl cursor-pointer rounded-xl bg-white flex justify-center items-center border" onClick={(e) => handleClick(e, 7)}>{plc7}</div>
+          <div className="text-5xl cursor-pointer rounded-xl bg-white flex justify-center items-center border" onClick={(e) => handleClick(e, 8)}>{plc8}</div>
         </div>
       </div>
 
